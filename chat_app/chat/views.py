@@ -39,9 +39,12 @@ def login(request):
 
     if User.objects.filter(name=username).exists():
         if User.objects.get(name=username).password == password:
-            return redirect('/choose_room')
+            # return redirect('/choose_room')
+            return render(request, 'choose_room.html', {'username': username})
+        else:
+            return HttpResponse('Incorrect password')
     else:
-        return HttpResponse('Incorrect username or password')
+        return HttpResponse('Incorrect username')
 
 
 def send(request):
