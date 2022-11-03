@@ -56,10 +56,21 @@ body {
   float: right;
   width: 15px;
 }
+.door {
+  width: 10px;
+}
+.door img {
+  align: right;
+  width: 25px;
+  margin: 2% 2% 2% 95%;
+}
 </style>
     <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 </head>
 <body>
+<a class="door" href="/choose_room">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Noun_Project_Door_icon_1512154.svg" alt="Door">
+</a>
 <h2>{{ room }} - DjChat</h2>
 
 <div id="display">
@@ -74,7 +85,7 @@ body {
 <script>
 $(document).ready(function(){
 setInterval(function(){
-    $('html,body').animate({scrollTop: document.body.scrollHeight},"fast");
+<!--    $('html,body').animate({scrollTop: document.body.scrollHeight},"fast");-->
     $.ajax({
         type: 'GET',
         url : "/getMessages/{{room}}/",
