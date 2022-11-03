@@ -1,85 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 0 20px;
-}
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'choose_room_stylesheet.css' %}">
+<!--<style>-->
+<!--body {-->
+<!--  margin: 0 auto;-->
+<!--  max-width: 800px;-->
+<!--  padding: 0 20px;-->
+<!--}-->
 
-.container {
-  border: 2px solid #dedede;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
-}
+<!--.container {-->
+<!--  border: 2px solid #dedede;-->
+<!--  background-color: #f1f1f1;-->
+<!--  border-radius: 5px;-->
+<!--  padding: 10px;-->
+<!--  margin: 10px 0;-->
+<!--}-->
 
-.darker {
-  border-color: #ccc;
-  background-color: #ddd;
-}
+<!--.darker {-->
+<!--  border-color: #ccc;-->
+<!--  background-color: #ddd;-->
+<!--}-->
 
-.container::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+<!--.container::after {-->
+<!--  content: "";-->
+<!--  clear: both;-->
+<!--  display: table;-->
+<!--}-->
 
-.container img {
-  float: left;
-  max-width: 60px;
-  width: 100%;
-  margin-right: 20px;
-  border-radius: 50%;
-}
+<!--.container img {-->
+<!--  float: left;-->
+<!--  max-width: 60px;-->
+<!--  width: 100%;-->
+<!--  margin-right: 20px;-->
+<!--  border-radius: 50%;-->
+<!--}-->
 
-.container img.right {
-  float: right;
-  margin-left: 20px;
-  margin-right:0;
-}
+<!--.container img.right {-->
+<!--  float: right;-->
+<!--  margin-left: 20px;-->
+<!--  margin-right:0;-->
+<!--}-->
 
-.time-right {
-  float: right;
-  color: #aaa;
-}
+<!--.time-right {-->
+<!--  float: right;-->
+<!--  color: #aaa;-->
+<!--}-->
 
-.time-left {
-  float: left;
-  color: #999;
-}
-.door {
-  width: 10px;
-}
-.door img {
-  align: right;
-  width: 25px;
-  margin: 2% 2% 2% 95%;
-}
-</style>
+<!--.time-left {-->
+<!--  float: left;-->
+<!--  color: #999;-->
+<!--}-->
+<!--.door {-->
+<!--  width: 10px;-->
+<!--}-->
+<!--.door img {-->
+<!--  align: right;-->
+<!--  width: 25px;-->
+<!--  margin: 2% 2% 2% 95%;-->
+<!--}-->
+<!--</style>-->
 </head>
 <body>
-<a class="door" href="/">
+<div class="header">
+    <a class="door" href="/">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Noun_Project_Door_icon_1512154.svg" alt="Door">
-</a>
-<div align="center">
-    <h2>Django Rooms</h2>
+    </a>
 </div>
-
 <div class="container">
-    <form id="post-form" method="POST" action="checkview">
-        {% csrf_token %}
-<!--        <label>Username</label>-->
-        <input type="hidden" name="username" value={{username}} id="username" width="100px" />
-        <label>Room Name</label>
-        <input type="text" name="room_name" id="room_name" width="100px" />
-        <input type="submit" value="Enter Room">
-    </form>
+    <div class="auth-form">
+        <form id="post-form" method="POST" action="checkview">
+            {% csrf_token %}
+            <input type="hidden" name="username" value={{username}} id="username" width="100px" />
+            <input type="text" name="room_name" placeholder="room name" id="room_name" width="100px" />
+            <input type="submit" value="Enter Room">
+        </form>
+    </div>
 </div>
 
 </body>
-
 </html>
